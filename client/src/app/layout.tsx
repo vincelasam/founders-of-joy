@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+// 1. Import your AuthProvider
+import { AuthProvider } from '@/features/auth/context/AuthContext'; 
 
-// 1. Configure the fonts
+// Configure the fonts
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans", 
@@ -28,9 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* 2. Apply the font variables to the body */}
+      {/* Keep your font variables and classes applied to the body */}
       <body className={`${dmSans.variable} ${cormorant.variable} font-sans antialiased`}>
-        {children}
+        
+        {/* 2. Wrap your children with AuthProvider here */}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+
       </body>
     </html>
   );
