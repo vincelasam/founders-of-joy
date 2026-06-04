@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'; // <-- Added the Link import
 
 export default function Hero() {
   return (
@@ -26,12 +27,22 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-wrap gap-4 justify-center items-center">
-          <button className="bg-deep text-white px-8 py-3 rounded-full text-sm tracking-wide transition hover:bg-warm-gold hover:-translate-y-0.5">
+          
+          {/* Changed to Link pointing to /register */}
+          <Link 
+            href="/register" 
+            className="bg-deep text-white px-8 py-3 rounded-full text-sm tracking-wide transition hover:bg-warm-gold hover:-translate-y-0.5"
+          >
             Join the Community
-          </button>
-          <button className="bg-transparent border border-deep text-deep px-8 py-3 rounded-full text-sm transition hover:border-warm-gold hover:text-warm-gold">
+          </Link>
+          
+          {/* Changed to an anchor tag pointing to the programs section */}
+          <a 
+            href="#programs" 
+            className="bg-transparent border border-deep text-deep px-8 py-3 rounded-full text-sm transition hover:border-warm-gold hover:text-warm-gold"
+          >
             Explore Programs
-          </button>
+          </a>
           
           <button className="flex items-center gap-2 bg-transparent border-none text-muted text-sm transition hover:text-warm-gold ml-2">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">

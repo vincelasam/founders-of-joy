@@ -5,10 +5,11 @@ export interface User {
   bio: string | null;
   avatar_url: string | null;
   avatar_initials: string | null;
-  created_at: string;
+  created_at: Date;
 }
 
-export interface AuthResponse {
-  token: string;
-  user: User;
+// What we attach to req after JWT verification
+export interface AuthPayload {
+  id: number;
+  email: string;
 }
