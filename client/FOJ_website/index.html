@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Founders of Joy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #fdf8f2;
+    --warm-gold: #c9973a;
+    --terracotta: #c96a3a;
+    --sage: #7a9e7e;
+    --deep: #2b2318;
+    --muted: #7a6e62;
+    --light-gold: #f5e9d3;
+    --card-bg: #fff9f2;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253,248,242,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 70px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--deep);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--warm-gold); }
+  .nav-links {
+    display: flex;
+    gap: 1.8rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--warm-gold); }
+  .nav-actions { display: flex; gap: 0.75rem; align-items: center; }
+  .btn-outline {
+    border: 1px solid var(--warm-gold);
+    color: var(--warm-gold);
+    background: transparent;
+    padding: 0.45rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--warm-gold); color: #fff; }
+  .btn-solid {
+    background: var(--warm-gold);
+    color: #fff;
+    border: none;
+    padding: 0.45rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-solid:hover { background: var(--terracotta); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #f5e9d3 0%, var(--cream) 70%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(201,106,58,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(122,158,126,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(201,151,58,0.5);
+    color: var(--warm-gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--warm-gold); font-style: italic; }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    font-weight: 300;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--deep);
+    color: #fff;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--warm-gold); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--deep);
+    color: var(--deep);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+  .btn-text {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .btn-text:hover { color: var(--warm-gold); }
+  .btn-text svg { width: 18px; height: 18px; }
+
+  .hero-float {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .hero-float-1 { width: 400px; height: 400px; background: var(--warm-gold); top: -100px; right: -100px; }
+  .hero-float-2 { width: 300px; height: 300px; background: var(--sage); bottom: -80px; left: -80px; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--deep);
+    margin-bottom: 1.25rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-subtitle { margin: 0 auto; }
+
+  /* ── MISSION ── */
+  .mission { background: var(--light-gold); }
+  .mission-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .mission-icon-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255,255,255,0.6);
+    border-radius: 16px;
+  }
+  .icon-circle {
+    width: 60px; height: 60px;
+    background: var(--warm-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+  }
+  .mission-icon-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--deep);
+  }
+  .mission-icon-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── CIRCLES ── */
+  .circles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .circle-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .circle-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(43,35,24,0.1); }
+  .circle-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--warm-gold), var(--terracotta));
+  }
+  .circle-card:nth-child(2)::before { background: linear-gradient(90deg, var(--sage), var(--warm-gold)); }
+  .circle-card:nth-child(3)::before { background: linear-gradient(90deg, var(--terracotta), #e8a87c); }
+  .circle-emoji { font-size: 2.5rem; margin-bottom: 1.25rem; display: block; }
+  .circle-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--deep);
+  }
+  .circle-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.75rem; }
+  .btn-link {
+    font-size: 0.85rem;
+    color: var(--warm-gold);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: gap 0.2s;
+  }
+  .btn-link:hover { gap: 0.6rem; }
+
+  /* ── PROGRAMS ── */
+  .programs { background: var(--deep); color: #fff; }
+  .programs .section-title { color: #fff; }
+  .programs .section-label { color: rgba(201,151,58,0.8); }
+  .programs .section-subtitle { color: rgba(253,248,242,0.6); }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .program-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: background 0.25s, transform 0.2s;
+    cursor: pointer;
+  }
+  .program-card:hover { background: rgba(201,151,58,0.12); transform: translateY(-4px); }
+  .program-tag {
+    display: inline-block;
+    background: rgba(201,151,58,0.2);
+    color: var(--warm-gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .program-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+  .program-card p { font-size: 0.88rem; color: rgba(253,248,242,0.55); line-height: 1.65; margin-bottom: 1.25rem; }
+  .btn-link-light {
+    font-size: 0.82rem;
+    color: var(--warm-gold);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: gap 0.2s;
+  }
+  .btn-link-light:hover { gap: 0.6rem; }
+
+  /* ── JOY FEED ── */
+  .joy-feed { background: var(--cream); }
+  .feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .feed-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .feed-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    margin-bottom: 1rem;
+  }
+  .feed-card blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: var(--deep);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .feed-author { display: flex; align-items: center; gap: 0.75rem; }
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .av-1 { background: linear-gradient(135deg, var(--warm-gold), var(--terracotta)); }
+  .av-2 { background: linear-gradient(135deg, var(--sage), #4a7a5e); }
+  .av-3 { background: linear-gradient(135deg, var(--terracotta), #e8a87c); }
+  .av-4 { background: linear-gradient(135deg, #b784a7, #8a5a9e); }
+  .author-name { font-size: 0.85rem; font-weight: 500; color: var(--deep); }
+  .author-role { font-size: 0.78rem; color: var(--muted); }
+  .center-btn { text-align: center; }
+
+  /* ── LEARNING ── */
+  .learning { background: var(--light-gold); }
+  .learning-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .learning-courses { display: flex; flex-direction: column; gap: 1rem; }
+  .course-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  .course-item:hover { transform: translateX(6px); }
+  .course-icon {
+    width: 44px; height: 44px;
+    background: var(--light-gold);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .course-name { font-size: 0.95rem; font-weight: 500; color: var(--deep); }
+  .course-meta { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── EVENTS ── */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .event-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .event-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(43,35,24,0.08); }
+  .event-banner {
+    height: 8px;
+    background: linear-gradient(90deg, var(--warm-gold), var(--terracotta));
+  }
+  .event-card:nth-child(2) .event-banner { background: linear-gradient(90deg, var(--sage), var(--warm-gold)); }
+  .event-card:nth-child(3) .event-banner { background: linear-gradient(90deg, var(--terracotta), #f5c99d); }
+  .event-body { padding: 2rem; }
+  .event-date {
+    font-size: 0.78rem;
+    color: var(--warm-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .event-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--deep);
+  }
+  .event-location { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.4rem; }
+  .event-type {
+    display: inline-block;
+    background: var(--light-gold);
+    color: var(--warm-gold);
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── IMPACT ── */
+  .impact { background: linear-gradient(135deg, var(--warm-gold) 0%, var(--terracotta) 100%); color: #fff; }
+  .impact .section-label { color: rgba(255,255,255,0.7); }
+  .impact .section-title { color: #fff; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .stat-item { text-align: center; padding: 2rem; }
+  .stat-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.75); letter-spacing: 0.05em; }
+
+  /* ── MEDIA ── */
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .media-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s;
+    cursor: pointer;
+  }
+  .media-card:hover { transform: translateY(-4px); }
+  .media-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .media-thumb.podcast { background: linear-gradient(135deg, #2b2318 60%, #4a3728); }
+  .media-thumb.story { background: linear-gradient(135deg, #7a9e7e 60%, #4a7a5e); }
+  .media-thumb.docu { background: linear-gradient(135deg, #c9973a 60%, #a07028); }
+  .media-body { padding: 1.5rem; }
+  .media-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    margin-bottom: 0.5rem;
+  }
+  .media-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 0.5rem;
+  }
+  .media-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── VOLUNTEER ── */
+  .volunteer { background: var(--deep); color: #fff; }
+  .volunteer .section-title { color: #fff; }
+  .volunteer .section-label { color: rgba(201,151,58,0.8); }
+  .volunteer .section-subtitle { color: rgba(253,248,242,0.6); }
+  .volunteer-ways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .vol-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .vol-card:hover { background: rgba(201,151,58,0.1); }
+  .vol-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .vol-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .vol-card p { font-size: 0.85rem; color: rgba(253,248,242,0.55); line-height: 1.6; }
+  .vol-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary-gold {
+    background: var(--warm-gold);
+    color: #fff;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary-gold:hover { background: var(--terracotta); transform: translateY(-2px); }
+  .btn-ghost-light {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost-light:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+
+  /* ── NEWSLETTER ── */
+  .newsletter { background: var(--light-gold); text-align: center; }
+  .newsletter-box {
+    background: #fff;
+    border-radius: 24px;
+    padding: 4rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(201,151,58,0.1);
+  }
+  .newsletter-box .section-title { margin-bottom: 0.75rem; }
+  .newsletter-box p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; }
+  .nl-form { display: flex; flex-direction: column; gap: 1rem; }
+  .nl-form input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid rgba(201,151,58,0.3);
+    border-radius: 50px;
+    background: var(--cream);
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--deep);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .nl-form input:focus { border-color: var(--warm-gold); }
+  .nl-form input::placeholder { color: var(--muted); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: radial-gradient(ellipse 100% 80% at 50% 50%, #f5e9d3, var(--cream));
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+  .cta-section .section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+  .cta-section .section-title em { color: var(--warm-gold); font-style: italic; }
+  .cta-section p { font-size: 1.05rem; color: var(--muted); margin-bottom: 2.5rem; font-weight: 300; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(253,248,242,0.7);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+  }
+  .footer-brand .nav-logo { font-size: 1.4rem; display: block; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(253,248,242,0.5); }
+  .footer-col h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul li a {
+    font-size: 0.88rem;
+    color: rgba(253,248,242,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--warm-gold); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(253,248,242,0.35);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .footer-bottom span { color: rgba(201,151,58,0.7); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .learning-inner { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    section { padding: 4rem 1.25rem; }
+    .newsletter-box { padding: 2.5rem 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Founders <span>of Joy</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Circles</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Media</a></li>
+    <li><a href="#">Volunteer</a></li>
+    <li><a href="#">Donate</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-outline">Login</button>
+    <button class="btn-solid">Join Community</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-float hero-float-1"></div>
+  <div class="hero-float hero-float-2"></div>
+  <div>
+    <div class="hero-badge">✦ A Holistic Wellness Community</div>
+    <h1>Where Every Mind<br>Deserves <em>Joy</em></h1>
+    <p>A holistic wellness community supporting neurodivergent individuals, entrepreneurs, and people seeking healing, purpose, and happiness.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">Join the Community</button>
+      <button class="btn-ghost">Explore Programs</button>
+      <button class="btn-text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        Watch Our Story
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">Making Happiness Accessible<br>for Every Mind</h2>
+      <p class="section-subtitle">We believe in holistic wellness, genuine mental well-being, and building a compassionate community where everyone belongs.</p>
+    </div>
+    <div class="mission-icons">
+      <div class="mission-icon-card">
+        <div class="icon-circle">🌿</div>
+        <h3>Wellness</h3>
+        <p>Nurturing the whole person — body, mind, and spirit — through holistic practices.</p>
+      </div>
+      <div class="mission-icon-card">
+        <div class="icon-circle">💛</div>
+        <h3>Compassion</h3>
+        <p>Creating safe, judgment-free spaces where every person is met with kindness.</p>
+      </div>
+      <div class="mission-icon-card">
+        <div class="icon-circle">🔥</div>
+        <h3>Empowerment</h3>
+        <p>Equipping individuals with the tools, knowledge, and community to thrive.</p>
+      </div>
+      <div class="mission-icon-card">
+        <div class="icon-circle">🌱</div>
+        <h3>Growth</h3>
+        <p>Embracing continuous growth as the foundation of a purposeful, joyful life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIRCLES -->
+<section>
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Community</div>
+      <h2 class="section-title">Find Your Circle</h2>
+      <p class="section-subtitle">Three distinct communities — each a safe haven for connection, growth, and belonging.</p>
+    </div>
+    <div class="circles-grid">
+      <div class="circle-card">
+        <span class="circle-emoji">🧠</span>
+        <h3>Neurodivergent Circle</h3>
+        <p>A safe and empowering space for neurodivergent individuals to connect, grow, and thrive with people who truly understand.</p>
+        <button class="btn-link">Explore Circle →</button>
+      </div>
+      <div class="circle-card">
+        <span class="circle-emoji">💼</span>
+        <h3>Entrepreneur Circle</h3>
+        <p>A wellness-centered community for entrepreneurs seeking purpose-driven leadership, resilience, and meaningful growth.</p>
+        <button class="btn-link">Explore Circle →</button>
+      </div>
+      <div class="circle-card">
+        <span class="circle-emoji">✨</span>
+        <h3>I Am Euphoria Circle</h3>
+        <p>A space for personal healing, self-discovery, and cultivating joy — where you meet yourself with radical acceptance.</p>
+        <button class="btn-link">Explore Circle →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Programs &amp; Initiatives</div>
+      <h2 class="section-title">Programs That Inspire<br>Healing, Growth &amp; Purpose</h2>
+      <p class="section-subtitle">Each program is thoughtfully designed to meet you where you are and walk with you toward where you want to be.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <span class="program-tag">Wellness</span>
+        <h3>Happy New Me</h3>
+        <p>A transformative program helping individuals reshape their mindset and embrace a joyful new chapter.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Community</span>
+        <h3>Project JOY</h3>
+        <p>Spreading joy across communities through acts of kindness, connection, and shared celebration.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Healing</span>
+        <h3>Hope. Healing. Happiness.</h3>
+        <p>A holistic retreat-based program weaving hope, healing practices, and pathways to lasting happiness.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Entrepreneurship</span>
+        <h3>The CEO University</h3>
+        <p>Equipping purpose-driven leaders with the tools, mindset, and community to lead with wellness at the core.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Growth</span>
+        <h3>Project GRACE</h3>
+        <p>A life-skills initiative fostering graceful living, emotional intelligence, and community impact.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Self-Discovery</span>
+        <h3>I Am Euphoria</h3>
+        <p>An immersive personal development experience guiding you to discover and embody your truest, most joyful self.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+      <div class="program-card">
+        <span class="program-tag">Conference</span>
+        <h3>The Happiness Summit PH</h3>
+        <p>The Philippines' premier gathering dedicated to the science, art, and practice of living a happy life.</p>
+        <button class="btn-link-light">Learn More →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOY FEED -->
+<section class="joy-feed">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Community Voices</div>
+      <h2 class="section-title">Voices of Joy</h2>
+      <p class="section-subtitle">Real stories, reflections, and insights from our beautiful community.</p>
+    </div>
+    <div class="feed-grid">
+      <div class="feed-card">
+        <div class="feed-type">Reflection</div>
+        <blockquote>"Today I realized healing is not linear. I'm grateful for the people who remind me that growth takes time."</blockquote>
+        <div class="feed-author">
+          <div class="avatar av-1">MR</div>
+          <div>
+            <div class="author-name">Maria R.</div>
+            <div class="author-role">Neurodivergent Circle</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-card">
+        <div class="feed-type">Gratitude Post</div>
+        <blockquote>"Gratitude is my daily anchor. This community showed me how beautiful it is to simply be alive and present."</blockquote>
+        <div class="feed-author">
+          <div class="avatar av-2">JL</div>
+          <div>
+            <div class="author-name">James L.</div>
+            <div class="author-role">I Am Euphoria Circle</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-card">
+        <div class="feed-type">Entrepreneur Insight</div>
+        <blockquote>"Leading with wellness first changed everything in my business. Purpose and profit can truly coexist."</blockquote>
+        <div class="feed-author">
+          <div class="avatar av-3">AC</div>
+          <div>
+            <div class="author-name">Ana C.</div>
+            <div class="author-role">Entrepreneur Circle</div>
+          </div>
+        </div>
+      </div>
+      <div class="feed-card">
+        <div class="feed-type">Healing Story</div>
+        <blockquote>"Finding this community was the turning point. For the first time, I felt truly seen and deeply understood."</blockquote>
+        <div class="feed-author">
+          <div class="avatar av-4">SK</div>
+          <div>
+            <div class="author-name">Sofia K.</div>
+            <div class="author-role">Neurodivergent Circle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="center-btn">
+      <button class="btn-primary">Join the Conversation</button>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING -->
+<section class="learning">
+  <div class="container">
+    <div class="learning-inner">
+      <div>
+        <div class="section-label">Learning &amp; Development</div>
+        <h2 class="section-title">Learn, Grow,<br>and Thrive</h2>
+        <p class="section-subtitle" style="margin-bottom:2rem;">Access courses, workshops, and personal development programs designed to support mental wellness and purpose-driven living.</p>
+        <button class="btn-primary">Explore Learning</button>
+      </div>
+      <div class="learning-courses">
+        <div class="course-item">
+          <div class="course-icon">🌟</div>
+          <div>
+            <div class="course-name">Happy New Me</div>
+            <div class="course-meta">Self-paced · 8 modules</div>
+          </div>
+        </div>
+        <div class="course-item">
+          <div class="course-icon">💡</div>
+          <div>
+            <div class="course-name">Entrepreneur Wellness</div>
+            <div class="course-meta">Live sessions · 6 weeks</div>
+          </div>
+        </div>
+        <div class="course-item">
+          <div class="course-icon">🤝</div>
+          <div>
+            <div class="course-name">Life Coaching Foundations</div>
+            <div class="course-meta">Self-paced · 10 modules</div>
+          </div>
+        </div>
+        <div class="course-item">
+          <div class="course-icon">🧘</div>
+          <div>
+            <div class="course-name">Mindfulness &amp; Resilience</div>
+            <div class="course-meta">Workshop series · 4 weeks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section>
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Gatherings</div>
+      <h2 class="section-title">Upcoming Events</h2>
+      <p class="section-subtitle">Join us in person and online for retreats, circles, conferences, and summits.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-banner"></div>
+        <div class="event-body">
+          <div class="event-type">Retreat</div>
+          <div class="event-date">📅 August 15–17, 2025</div>
+          <h3>Hope. Healing. Happiness. Retreat</h3>
+          <div class="event-location">📍 Tagaytay, Cavite</div>
+          <button class="btn-primary">Register Now</button>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"></div>
+        <div class="event-body">
+          <div class="event-type">Conference</div>
+          <div class="event-date">📅 September 20, 2025</div>
+          <h3>I Am Euphoria Conference</h3>
+          <div class="event-location">📍 Manila, Philippines</div>
+          <button class="btn-primary">Register Now</button>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"></div>
+        <div class="event-body">
+          <div class="event-type">Summit</div>
+          <div class="event-date">📅 November 8, 2025</div>
+          <h3>Happiness Summit PH</h3>
+          <div class="event-location">📍 Pasay City, Metro Manila</div>
+          <button class="btn-primary">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Our Impact</div>
+      <h2 class="section-title">Joy That Ripples Outward</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-icon">🌍</span>
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">People Reached</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">👥</span>
+        <div class="stat-number">12K+</div>
+        <div class="stat-label">Community Members</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">📚</span>
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Programs Delivered</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">🏘️</span>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Communities Supported</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section>
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Stories &amp; Media</div>
+      <h2 class="section-title">Stories That Inspire Hope</h2>
+      <p class="section-subtitle">Produced by Founders of Joy Production — content that moves, heals, and uplifts.</p>
+    </div>
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="media-thumb podcast">🎙️</div>
+        <div class="media-body">
+          <div class="media-tag">Podcast</div>
+          <h3>The Joy Podcast</h3>
+          <p>Conversations with changemakers, healers, and purpose-driven leaders on living a joyful life.</p>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-thumb story">📖</div>
+        <div class="media-body">
+          <div class="media-tag">Community Story</div>
+          <h3>Voices of the Circle</h3>
+          <p>Real testimonials from community members sharing their journeys of healing and transformation.</p>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-thumb docu">🎬</div>
+        <div class="media-body">
+          <div class="media-tag">Short Documentary</div>
+          <h3>The Happiness Project</h3>
+          <p>A short documentary exploring what joy looks like across different lives and communities in the Philippines.</p>
+        </div>
+      </div>
+    </div>
+    <div class="center-btn">
+      <button class="btn-primary">Explore Media</button>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section class="volunteer">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Get Involved</div>
+      <h2 class="section-title">Be Part of the Movement</h2>
+      <p class="section-subtitle">There are many ways to join hands and extend the reach of joy.</p>
+    </div>
+    <div class="volunteer-ways">
+      <div class="vol-card">
+        <span class="vol-icon">🙌</span>
+        <h3>Volunteer</h3>
+        <p>Offer your time and talents to support our programs, events, and community initiatives.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">🤝</span>
+        <h3>Partner With Us</h3>
+        <p>Align your organization with a mission that touches hearts and transforms lives.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">⭐</span>
+        <h3>Sponsor Programs</h3>
+        <p>Fund initiatives that bring healing, wellness, and joy to underserved communities.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">💛</span>
+        <h3>Donate</h3>
+        <p>Every contribution directly supports the people and programs at the heart of our mission.</p>
+      </div>
+    </div>
+    <div class="vol-btns">
+      <button class="btn-primary-gold">Volunteer Now</button>
+      <button class="btn-ghost-light">Become a Partner</button>
+      <button class="btn-ghost-light">Donate</button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-box">
+      <div class="section-label" style="text-align:center; margin-bottom:0.5rem;">Stay Connected</div>
+      <h2 class="section-title" style="text-align:center;">Stay Connected to the Joy</h2>
+      <p>Receive insights, events, and wellness resources from Founders of Joy — delivered with warmth to your inbox.</p>
+      <div class="nl-form">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email Address" />
+        <button class="btn-primary" style="align-self:center; padding: 0.85rem 2.5rem;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">You Deserve <em>Joy.</em><br>You Deserve Healing.<br>You Belong Here.</h2>
+    <p>Take the first step toward the community, purpose, and happiness you deserve.</p>
+    <div class="cta-btns">
+      <button class="btn-primary">Join the Community</button>
+      <button class="btn-ghost">Start Your Journey</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">Founders <span>of Joy</span></span>
+      <p>A holistic wellness community supporting neurodivergent individuals, entrepreneurs, and people seeking healing, purpose, and happiness.</p>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Mission &amp; Vision</a></li>
+        <li><a href="#">Leadership</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="#">Circles</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 Founders of Joy · A community initiative under <span>La Pasion Solutions</span></div>
+    <div>Made with 💛 for every mind</div>
+  </div>
+</footer>
+
+</body>
+</html>

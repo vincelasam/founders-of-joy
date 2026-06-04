@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Founders of Joy — Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #fdf8f2;
+  --gold: #c9973a;
+  --gold-light: #f5e9d3;
+  --terra: #c96a3a;
+  --sage: #7a9e7e;
+  --deep: #2b2318;
+  --muted: #7a6e62;
+  --card: #fff9f2;
+  --border: rgba(201,151,58,0.18);
+  --sidebar-w: 240px;
+  --right-w: 280px;
+  --top-h: 60px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--deep);
+  overflow-x: hidden;
+}
+
+/* ── TOP NAV ── */
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--top-h);
+  background: rgba(253,248,242,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 200;
+  gap: 1rem;
+}
+.topnav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--deep);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.topnav-logo span { color: var(--gold); }
+.topnav-search {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+}
+.topnav-search input {
+  width: 100%;
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--deep);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.topnav-search input::placeholder { color: var(--muted); }
+.topnav-search input:focus { border-color: var(--gold); }
+.topnav-search .search-icon {
+  position: absolute;
+  left: 0.75rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.topnav-actions { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.icon-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  position: relative;
+  transition: background 0.2s;
+  color: var(--deep);
+}
+.icon-btn:hover { background: var(--gold-light); }
+.badge {
+  position: absolute;
+  top: 4px; right: 4px;
+  width: 8px; height: 8px;
+  background: var(--terra);
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+}
+.btn-create {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-create:hover { background: var(--terra); }
+.avatar-sm {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--terra));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── LAYOUT ── */
+.app-body {
+  display: flex;
+  padding-top: var(--top-h);
+  min-height: 100vh;
+}
+
+/* ── LEFT SIDEBAR ── */
+.sidebar-left {
+  width: var(--sidebar-w);
+  position: fixed;
+  top: var(--top-h);
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--border);
+  background: var(--cream);
+  scrollbar-width: none;
+}
+.sidebar-left::-webkit-scrollbar { display: none; }
+
+.nav-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+.nav-label:first-child { margin-top: 0; }
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--muted);
+  transition: all 0.18s;
+  text-decoration: none;
+  border: none;
+  background: none;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+.nav-item:hover { background: var(--gold-light); color: var(--deep); }
+.nav-item.active { background: var(--gold-light); color: var(--deep); font-weight: 500; }
+.nav-item .nav-icon { font-size: 1.1rem; width: 20px; text-align: center; flex-shrink: 0; }
+
+.circle-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--deep);
+  transition: background 0.18s;
+  margin-bottom: 0.25rem;
+}
+.circle-pill:hover { background: var(--gold-light); }
+.circle-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cd-neuro { background: var(--sage); }
+.cd-entre { background: var(--gold); }
+.cd-eupho { background: var(--terra); }
+
+/* ── MAIN FEED ── */
+.main-feed {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  margin-right: var(--right-w);
+  padding: 1.5rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  /* override: actual offset handled below */
+}
+.feed-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  margin-left: var(--sidebar-w);
+  margin-right: var(--right-w);
+}
+
+/* ── CREATE POST CARD ── */
+.create-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.5s ease both;
+}
+.create-top {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.create-top textarea {
+  flex: 1;
+  background: var(--gold-light);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--deep);
+  resize: none;
+  height: 60px;
+  outline: none;
+  transition: border-color 0.2s, height 0.2s;
+}
+.create-top textarea:focus { border-color: var(--gold); height: 80px; }
+.create-top textarea::placeholder { color: var(--muted); }
+.create-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.post-type-btns { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.post-type-btn {
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.post-type-btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+.btn-post {
+  background: var(--deep);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-post:hover { background: var(--gold); }
+
+/* ── STORIES ── */
+.stories-row {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  scrollbar-width: none;
+}
+.stories-row::-webkit-scrollbar { display: none; }
+.story-bubble {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.story-ring {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--terra));
+  padding: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.story-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  border: 2px solid var(--cream);
+}
+.story-name { font-size: 0.72rem; color: var(--muted); text-align: center; max-width: 64px; line-height: 1.2; }
+
+/* ── POST CARD ── */
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+  transition: box-shadow 0.2s;
+}
+.post-card:hover { box-shadow: 0 8px 30px rgba(43,35,24,0.07); }
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem 0;
+  justify-content: space-between;
+}
+.post-author { display: flex; align-items: center; gap: 0.75rem; }
+.avatar-post {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.ap-1 { background: linear-gradient(135deg, var(--gold), var(--terra)); }
+.ap-2 { background: linear-gradient(135deg, var(--sage), #4a7a5e); }
+.ap-3 { background: linear-gradient(135deg, var(--terra), #e8a87c); }
+.ap-4 { background: linear-gradient(135deg, #b784a7, #8a5a9e); }
+.author-info {}
+.author-name { font-size: 0.9rem; font-weight: 500; color: var(--deep); }
+.author-meta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.76rem; color: var(--muted); }
+.circle-badge {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+}
+.cb-entre { background: rgba(201,151,58,0.15); color: var(--gold); }
+.cb-neuro { background: rgba(122,158,126,0.15); color: var(--sage); }
+.cb-eupho { background: rgba(201,106,58,0.15); color: var(--terra); }
+.post-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--muted);
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.post-menu-btn:hover { background: var(--gold-light); }
+.post-body { padding: 0.85rem 1.25rem; }
+.post-text {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--deep);
+  margin-bottom: 0.75rem;
+}
+.post-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--deep);
+  border-left: 3px solid var(--gold);
+  padding-left: 1rem;
+  margin-bottom: 0.75rem;
+}
+.post-image {
+  width: 100%;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold-light), #ffe8cc);
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+.post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.tag {
+  font-size: 0.76rem;
+  color: var(--gold);
+  background: rgba(201,151,58,0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.tag:hover { background: rgba(201,151,58,0.22); }
+.post-engagement {
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.25rem;
+}
+.engage-left { font-size: 0.78rem; color: var(--muted); }
+.engage-btns { display: flex; gap: 0.25rem; }
+.engage-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.18s;
+  font-family: 'DM Sans', sans-serif;
+}
+.engage-btn:hover { background: var(--gold-light); color: var(--gold); }
+.engage-btn.reacted { color: var(--terra); }
+.engage-icon { font-size: 1rem; }
+.comment-section { border-top: 1px solid var(--border); padding: 0.85rem 1.25rem; }
+.comment-input-row { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.85rem; }
+.comment-input-row input {
+  flex: 1;
+  background: var(--gold-light);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--deep);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.comment-input-row input:focus { border-color: var(--gold); }
+.comment-input-row input::placeholder { color: var(--muted); }
+.comment-item { display: flex; gap: 0.6rem; margin-bottom: 0.75rem; }
+.comment-bubble {
+  background: var(--gold-light);
+  border-radius: 12px 12px 12px 4px;
+  padding: 0.6rem 0.85rem;
+  flex: 1;
+}
+.comment-author { font-size: 0.78rem; font-weight: 500; color: var(--deep); margin-bottom: 0.2rem; }
+.comment-text { font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
+.comment-reply { font-size: 0.74rem; color: var(--gold); margin-top: 0.25rem; cursor: pointer; }
+
+/* ── RIGHT SIDEBAR ── */
+.sidebar-right {
+  width: var(--right-w);
+  position: fixed;
+  top: var(--top-h);
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  border-left: 1px solid var(--border);
+  background: var(--cream);
+  scrollbar-width: none;
+}
+.sidebar-right::-webkit-scrollbar { display: none; }
+.widget {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+}
+.widget-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  font-weight: 500;
+}
+.trending-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.trending-item:hover { background: var(--gold-light); }
+.trending-rank {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  width: 18px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.trending-text { font-size: 0.82rem; color: var(--deep); line-height: 1.4; }
+.trending-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+.event-mini {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.event-mini:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+.event-date-box {
+  background: var(--gold);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+.event-date-box .month { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.event-date-box .day { font-size: 1.1rem; font-weight: 600; line-height: 1; }
+.event-info {}
+.event-name { font-size: 0.83rem; font-weight: 500; color: var(--deep); margin-bottom: 0.15rem; line-height: 1.3; }
+.event-loc { font-size: 0.74rem; color: var(--muted); }
+.btn-join {
+  margin-top: 0.4rem;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.btn-join:hover { background: var(--gold); color: #fff; }
+
+.person-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+.person-info { flex: 1; min-width: 0; }
+.person-name { font-size: 0.83rem; font-weight: 500; color: var(--deep); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.person-role { font-size: 0.72rem; color: var(--muted); }
+.btn-follow {
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.btn-follow:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+.course-mini {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.course-icon-mini {
+  width: 38px; height: 38px;
+  background: var(--gold-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.course-info { flex: 1; min-width: 0; }
+.course-name-mini { font-size: 0.82rem; font-weight: 500; color: var(--deep); }
+.course-meta-mini { font-size: 0.72rem; color: var(--muted); }
+.btn-enroll {
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.7rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.btn-enroll:hover { background: var(--gold); color: #fff; }
+
+/* ── MOBILE BOTTOM NAV ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(253,248,242,0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  padding: 0.6rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 200;
+}
+.mob-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--muted);
+  transition: color 0.15s;
+  font-family: 'DM Sans', sans-serif;
+  min-width: 44px;
+}
+.mob-btn span { font-size: 0.6rem; letter-spacing: 0.04em; }
+.mob-btn.active { color: var(--gold); }
+.mob-btn-post {
+  width: 48px; height: 48px;
+  background: var(--gold);
+  border: none;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.15s;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(201,151,58,0.4);
+}
+.mob-btn-post:hover { background: var(--terra); transform: scale(1.06); }
+
+/* ── MODAL OVERLAY ── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(43,35,24,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 540px;
+  animation: fadeUp 0.3s ease;
+}
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--deep);
+}
+.modal-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.3rem; color: var(--muted);
+  transition: color 0.15s;
+}
+.modal-close:hover { color: var(--deep); }
+.modal-textarea {
+  width: 100%;
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 0.92rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--deep);
+  resize: none;
+  height: 120px;
+  outline: none;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+.modal-textarea:focus { border-color: var(--gold); }
+.modal-textarea::placeholder { color: var(--muted); }
+.modal-options { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.modal-opt-btn {
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.modal-opt-btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+.modal-privacy {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.privacy-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.privacy-btn.active { background: var(--deep); color: #fff; border-color: var(--deep); }
+.privacy-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+.modal-actions { display: flex; justify-content: flex-end; }
+.btn-modal-post {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-modal-post:hover { background: var(--terra); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .sidebar-right { display: none; }
+  .feed-wrap { margin-right: 0; }
+}
+@media (max-width: 720px) {
+  .sidebar-left { display: none; }
+  .feed-wrap { margin-left: 0; }
+  .mobile-nav { display: flex; }
+  body { padding-bottom: 70px; }
+  .topnav-search { max-width: 180px; }
+}
+@media (max-width: 420px) {
+  .topnav-search { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-logo">Founders <span>of Joy</span></div>
+  <div class="topnav-search">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="Search people, posts, circles…"/>
+  </div>
+  <div class="topnav-actions">
+    <button class="icon-btn" title="Notifications">
+      🔔
+      <span class="badge"></span>
+    </button>
+    <button class="icon-btn" title="Messages">✉️</button>
+    <button class="btn-create" onclick="openModal()">✦ Create Post</button>
+    <div class="avatar-sm" title="My Profile">JS</div>
+  </div>
+</nav>
+
+<!-- APP BODY -->
+<div class="app-body">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar-left">
+    <div class="nav-label">Menu</div>
+    <button class="nav-item active"><span class="nav-icon">🏠</span> Home Feed</button>
+    <button class="nav-item"><span class="nav-icon">⭕</span> Circles</button>
+    <button class="nav-item"><span class="nav-icon">📚</span> Learning</button>
+    <button class="nav-item"><span class="nav-icon">📅</span> Events</button>
+    <button class="nav-item"><span class="nav-icon">🎬</span> Media</button>
+    <button class="nav-item"><span class="nav-icon">📓</span> Joy Journal</button>
+    <button class="nav-item"><span class="nav-icon">🤝</span> Volunteer</button>
+    <button class="nav-item"><span class="nav-icon">⚙️</span> Settings</button>
+
+    <div class="nav-label">Your Circles</div>
+    <div class="circle-pill">
+      <span class="circle-dot cd-neuro"></span>
+      Neurodivergent Circle
+    </div>
+    <div class="circle-pill">
+      <span class="circle-dot cd-entre"></span>
+      Entrepreneur Circle
+    </div>
+    <div class="circle-pill">
+      <span class="circle-dot cd-eupho"></span>
+      I Am Euphoria Circle
+    </div>
+  </aside>
+
+  <!-- MAIN FEED -->
+  <div class="feed-wrap">
+    <div style="max-width:620px; margin:0 auto;">
+
+      <!-- CREATE POST CARD -->
+      <div class="create-card">
+        <div class="create-top">
+          <div class="avatar-sm" style="width:40px;height:40px;font-size:0.85rem;flex-shrink:0;">JS</div>
+          <textarea placeholder="Share your insight, gratitude, or story…"></textarea>
+        </div>
+        <div class="create-bottom">
+          <div class="post-type-btns">
+            <button class="post-type-btn">📷 Photo</button>
+            <button class="post-type-btn">🎥 Video</button>
+            <button class="post-type-btn">💡 Insight</button>
+            <button class="post-type-btn">🙏 Gratitude</button>
+            <button class="post-type-btn">❓ Question</button>
+          </div>
+          <button class="btn-post">Post</button>
+        </div>
+      </div>
+
+      <!-- STORIES -->
+      <div class="stories-row">
+        <div class="story-bubble">
+          <div class="story-ring"><div class="story-inner">✨</div></div>
+          <div class="story-name">Joy Reflection</div>
+        </div>
+        <div class="story-bubble">
+          <div class="story-ring" style="background:linear-gradient(135deg,var(--sage),#4a7a5e)"><div class="story-inner">🙏</div></div>
+          <div class="story-name">Gratitude Post</div>
+        </div>
+        <div class="story-bubble">
+          <div class="story-ring" style="background:linear-gradient(135deg,var(--terra),#e8a87c)"><div class="story-inner">💼</div></div>
+          <div class="story-name">Entrepreneur Insight</div>
+        </div>
+        <div class="story-bubble">
+          <div class="story-ring" style="background:linear-gradient(135deg,#b784a7,#8a5a9e)"><div class="story-inner">🌿</div></div>
+          <div class="story-name">Healing Journey</div>
+        </div>
+        <div class="story-bubble">
+          <div class="story-ring" style="background:linear-gradient(135deg,#7a9e7e,var(--gold))"><div class="story-inner">🌟</div></div>
+          <div class="story-name">Morning Affirmation</div>
+        </div>
+      </div>
+
+      <!-- POST 1 -->
+      <div class="post-card" style="animation-delay:0.05s">
+        <div class="post-header">
+          <div class="post-author">
+            <div class="avatar-post ap-1">MS</div>
+            <div class="author-info">
+              <div class="author-name">Maria Santos</div>
+              <div class="author-meta">
+                <span class="circle-badge cb-entre">Entrepreneur Circle</span>
+                · 3 hours ago
+              </div>
+            </div>
+          </div>
+          <button class="post-menu-btn">···</button>
+        </div>
+        <div class="post-body">
+          <p class="post-quote">"Today I realized that healing doesn't happen overnight. I'm learning to celebrate small progress and trust the process."</p>
+          <div class="post-tags">
+            <span class="tag">#Healing</span>
+            <span class="tag">#Gratitude</span>
+            <span class="tag">#EntrepreneurLife</span>
+          </div>
+        </div>
+        <div class="post-engagement">
+          <span class="engage-left">💛 24 reactions · 8 comments</span>
+          <div class="engage-btns">
+            <button class="engage-btn reacted"><span class="engage-icon">💛</span> React</button>
+            <button class="engage-btn"><span class="engage-icon">💬</span> Comment</button>
+            <button class="engage-btn"><span class="engage-icon">↗️</span> Share</button>
+            <button class="engage-btn"><span class="engage-icon">🔖</span> Save</button>
+          </div>
+        </div>
+        <div class="comment-section">
+          <div class="comment-input-row">
+            <div class="avatar-sm" style="width:30px;height:30px;font-size:0.72rem;flex-shrink:0;">JS</div>
+            <input type="text" placeholder="Write a comment…"/>
+          </div>
+          <div class="comment-item">
+            <div class="avatar-post ap-2" style="width:30px;height:30px;font-size:0.72rem;flex-shrink:0;">JL</div>
+            <div class="comment-bubble">
+              <div class="comment-author">James Lim</div>
+              <div class="comment-text">Thank you for sharing this. I needed this reminder today. 🙏</div>
+              <div class="comment-reply">Reply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="post-card" style="animation-delay:0.1s">
+        <div class="post-header">
+          <div class="post-author">
+            <div class="avatar-post ap-2">JL</div>
+            <div class="author-info">
+              <div class="author-name">James Lim</div>
+              <div class="author-meta">
+                <span class="circle-badge cb-neuro">Neurodivergent Circle</span>
+                · 5 hours ago
+              </div>
+            </div>
+          </div>
+          <button class="post-menu-btn">···</button>
+        </div>
+        <div class="post-body">
+          <div class="post-image">🌿</div>
+          <p class="post-text">Gratitude is my daily anchor. This community showed me how beautiful it is to simply be alive and present. Finding joy in the smallest moments has been life-changing.</p>
+          <div class="post-tags">
+            <span class="tag">#Gratitude</span>
+            <span class="tag">#NeurodivergentJoy</span>
+            <span class="tag">#DailyReflection</span>
+          </div>
+        </div>
+        <div class="post-engagement">
+          <span class="engage-left">💛 41 reactions · 12 comments</span>
+          <div class="engage-btns">
+            <button class="engage-btn"><span class="engage-icon">💛</span> React</button>
+            <button class="engage-btn"><span class="engage-icon">💬</span> Comment</button>
+            <button class="engage-btn"><span class="engage-icon">↗️</span> Share</button>
+            <button class="engage-btn"><span class="engage-icon">🔖</span> Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div class="post-card" style="animation-delay:0.15s">
+        <div class="post-header">
+          <div class="post-author">
+            <div class="avatar-post ap-3">AC</div>
+            <div class="author-info">
+              <div class="author-name">Ana Cruz</div>
+              <div class="author-meta">
+                <span class="circle-badge cb-eupho">I Am Euphoria</span>
+                · 8 hours ago
+              </div>
+            </div>
+          </div>
+          <button class="post-menu-btn">···</button>
+        </div>
+        <div class="post-body">
+          <p class="post-text">Leading with wellness first changed everything in my business. Purpose and profit can truly coexist. To every entrepreneur struggling — your well-being is not separate from your success. It IS the foundation.</p>
+          <div class="post-tags">
+            <span class="tag">#WellnessFirst</span>
+            <span class="tag">#PurposeDriven</span>
+            <span class="tag">#IAmEuphoria</span>
+          </div>
+        </div>
+        <div class="post-engagement">
+          <span class="engage-left">💛 67 reactions · 19 comments</span>
+          <div class="engage-btns">
+            <button class="engage-btn"><span class="engage-icon">💛</span> React</button>
+            <button class="engage-btn"><span class="engage-icon">💬</span> Comment</button>
+            <button class="engage-btn"><span class="engage-icon">↗️</span> Share</button>
+            <button class="engage-btn"><span class="engage-icon">🔖</span> Save</button>
+          </div>
+        </div>
+        <div class="comment-section">
+          <div class="comment-input-row">
+            <div class="avatar-sm" style="width:30px;height:30px;font-size:0.72rem;flex-shrink:0;">JS</div>
+            <input type="text" placeholder="Write a comment…"/>
+          </div>
+          <div class="comment-item">
+            <div class="avatar-post ap-4" style="width:30px;height:30px;font-size:0.72rem;flex-shrink:0;">SK</div>
+            <div class="comment-bubble">
+              <div class="comment-author">Sofia K.</div>
+              <div class="comment-text">This hit me so deeply. Thank you for being so open and vulnerable. You inspire so many of us. 💛</div>
+              <div class="comment-reply">Reply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /max-width wrap -->
+  </div><!-- /feed-wrap -->
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="sidebar-right">
+
+    <!-- TRENDING -->
+    <div class="widget">
+      <div class="widget-title">Trending Insights</div>
+      <div class="trending-item">
+        <div class="trending-rank">1</div>
+        <div>
+          <div class="trending-text">Top Reflection Today</div>
+          <div class="trending-meta">Maria Santos · Entrepreneur Circle</div>
+        </div>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">2</div>
+        <div>
+          <div class="trending-text">Top Entrepreneur Insight</div>
+          <div class="trending-meta">Ana Cruz · I Am Euphoria</div>
+        </div>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">3</div>
+        <div>
+          <div class="trending-text">Top Gratitude Post</div>
+          <div class="trending-meta">James Lim · Neurodivergent Circle</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENTS -->
+    <div class="widget">
+      <div class="widget-title">Upcoming Events</div>
+      <div class="event-mini">
+        <div class="event-date-box"><div class="month">Aug</div><div class="day">15</div></div>
+        <div class="event-info">
+          <div class="event-name">Hope. Healing. Happiness. Retreat</div>
+          <div class="event-loc">📍 Tagaytay, Cavite</div>
+          <button class="btn-join">Join</button>
+        </div>
+      </div>
+      <div class="event-mini">
+        <div class="event-date-box" style="background:var(--sage)"><div class="month">Sep</div><div class="day">20</div></div>
+        <div class="event-info">
+          <div class="event-name">I Am Euphoria Conference</div>
+          <div class="event-loc">📍 Manila, PH</div>
+          <button class="btn-join">Join</button>
+        </div>
+      </div>
+      <div class="event-mini">
+        <div class="event-date-box" style="background:var(--terra)"><div class="month">Nov</div><div class="day">8</div></div>
+        <div class="event-info">
+          <div class="event-name">Happiness Summit PH</div>
+          <div class="event-loc">📍 Pasay City, Metro Manila</div>
+          <button class="btn-join">Join</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUGGESTED PEOPLE -->
+    <div class="widget">
+      <div class="widget-title">Suggested People</div>
+      <div class="person-item">
+        <div class="avatar-post ap-3" style="width:36px;height:36px;font-size:0.8rem;flex-shrink:0;">RC</div>
+        <div class="person-info">
+          <div class="person-name">Rica Corpuz</div>
+          <div class="person-role">Wellness Advocate</div>
+        </div>
+        <button class="btn-follow">Follow</button>
+      </div>
+      <div class="person-item">
+        <div class="avatar-post ap-4" style="width:36px;height:36px;font-size:0.8rem;flex-shrink:0;">KM</div>
+        <div class="person-info">
+          <div class="person-name">Kevin Mendoza</div>
+          <div class="person-role">Life Coach</div>
+        </div>
+        <button class="btn-follow">Follow</button>
+      </div>
+      <div class="person-item">
+        <div class="avatar-post ap-2" style="width:36px;height:36px;font-size:0.8rem;flex-shrink:0;">LT</div>
+        <div class="person-info">
+          <div class="person-name">Luisa Torres</div>
+          <div class="person-role">Entrepreneur</div>
+        </div>
+        <button class="btn-follow">Follow</button>
+      </div>
+    </div>
+
+    <!-- LEARNING SPOTLIGHT -->
+    <div class="widget">
+      <div class="widget-title">Learning Spotlight</div>
+      <div class="course-mini">
+        <div class="course-icon-mini">🌟</div>
+        <div class="course-info">
+          <div class="course-name-mini">Happy New Me</div>
+          <div class="course-meta-mini">8 modules · Self-paced</div>
+        </div>
+        <button class="btn-enroll">Enroll</button>
+      </div>
+      <div class="course-mini">
+        <div class="course-icon-mini">💡</div>
+        <div class="course-info">
+          <div class="course-name-mini">Entrepreneur Wellness</div>
+          <div class="course-meta-mini">6 weeks · Live</div>
+        </div>
+        <button class="btn-enroll">Enroll</button>
+      </div>
+      <div class="course-mini">
+        <div class="course-icon-mini">🤝</div>
+        <div class="course-info">
+          <div class="course-name-mini">Life Coaching Foundations</div>
+          <div class="course-meta-mini">10 modules · Self-paced</div>
+        </div>
+        <button class="btn-enroll">Enroll</button>
+      </div>
+    </div>
+
+  </aside>
+</div><!-- /app-body -->
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-nav">
+  <button class="mob-btn active">🏠<span>Home</span></button>
+  <button class="mob-btn">⭕<span>Circles</span></button>
+  <button class="mob-btn-post" onclick="openModal()">✦</button>
+  <button class="mob-btn">📚<span>Learn</span></button>
+  <button class="mob-btn">👤<span>Profile</span></button>
+</nav>
+
+<!-- CREATE POST MODAL -->
+<div class="modal-overlay" id="createModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">Create a Post</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <textarea class="modal-textarea" placeholder="What insight or experience would you like to share?"></textarea>
+    <div class="modal-options">
+      <button class="modal-opt-btn">📷 Photo</button>
+      <button class="modal-opt-btn">🎥 Video</button>
+      <button class="modal-opt-btn">📊 Poll</button>
+      <button class="modal-opt-btn">⭕ Tag Circle</button>
+      <button class="modal-opt-btn"># Add Tags</button>
+    </div>
+    <div class="modal-privacy">
+      <button class="privacy-btn active" onclick="selectPrivacy(this)">🌍 Public</button>
+      <button class="privacy-btn" onclick="selectPrivacy(this)">⭕ Circle Only</button>
+      <button class="privacy-btn" onclick="selectPrivacy(this)">👥 Followers Only</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal-post" onclick="closeModal()">Post</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('createModal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('createModal').classList.remove('open');
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('createModal')) closeModal();
+  }
+  function selectPrivacy(btn) {
+    document.querySelectorAll('.privacy-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Nav item active state
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  // Mobile nav active state
+  document.querySelectorAll('.mob-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.mob-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // React button toggle
+  document.querySelectorAll('.engage-btn').forEach(btn => {
+    if (btn.textContent.includes('React')) {
+      btn.addEventListener('click', () => btn.classList.toggle('reacted'));
+    }
+  });
+
+  // Follow button toggle
+  document.querySelectorAll('.btn-follow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.textContent === 'Follow') {
+        btn.textContent = 'Following';
+        btn.style.background = 'var(--gold)';
+        btn.style.color = '#fff';
+        btn.style.borderColor = 'var(--gold)';
+      } else {
+        btn.textContent = 'Follow';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.borderColor = '';
+      }
+    });
+  });
+</script>
+</body>
+</html>
