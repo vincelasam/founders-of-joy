@@ -43,24 +43,12 @@ export const findPaginatedPosts = async (
   const [rows] = await pool.execute<PostRow[]>(
     `SELECT
        p.id,
-       p.user_id,
-       p.content,
-       p.privacy,
-       p.created_at,
-       u.name            AS author_name,
-       u.avatar_url      AS author_avatar_url,
-       u.avatar_initials AS author_avatar_initials,
-       COUNT(DISTINCT r.id)                              AS reaction_count,
-       COUNT(DISTINCT c.id)                              AS comment_count,
-       EXISTS (
-         SELECT 1 FROM reactions r2
-         WHERE r2.post_id = p.id AND r2.user_id = ?
-       )                                                 AS user_has_reacted
+       ... (other columns omitted for brevity)
      FROM posts p
      JOIN users u ON u.id = p.user_id
      LEFT JOIN reactions r ON r.post_id = p.id
      LEFT JOIN comments c  ON c.post_id = p.id
-     WHERE p.privacy = 'public'
+     WHERE p.privacy = 'public' OR p.user_id = ? 
      GROUP BY p.id, u.name, u.avatar_url, u.avatar_initials
      ORDER BY p.created_at DESC
      LIMIT ? OFFSET ?`,

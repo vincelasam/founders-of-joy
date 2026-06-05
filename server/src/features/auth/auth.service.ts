@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import * as AuthRepository from './auth.repository';
-import { AuthPayload } from '../src/types/user';
+import { AuthPayload } from '../../types/user';
 
 const SALT_ROUNDS = 12;
 

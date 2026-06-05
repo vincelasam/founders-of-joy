@@ -1,20 +1,23 @@
 "use client";
 
 import React, { useState } from 'react';
+import { usePostActions } from '../hooks/usePostActions'; // Import the hook
 
 export default function CreatePostForm() {
   const [content, setContent] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
+  const { createPost, isSubmitting } = usePostActions(); // Initialize the hook
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!content.trim()) return;
+    if (!content.trim() || isSubmitting) return;
 
-    // TODO: Call your postService.createPost() here
-    console.log("Submitting Post:", { content, isPrivate });
+    // Call the actual API via the hook
+    await createPost(content, isPrivate);
     
     // Clear form after submitting
     setContent('');
+    setIsPrivate(false);
   };
 
   return (
@@ -45,10 +48,10 @@ export default function CreatePostForm() {
         
         <button
           type="submit"
-          disabled={!content.trim()}
+          disabled={!content.trim() || isSubmitting}
           className="bg-deep text-white px-6 py-2 rounded-full text-sm tracking-wide transition hover:bg-warm-gold disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Post
+          {isSubmitting ? 'Posting...' : 'Post'}
         </button>
       </div>
     </form>

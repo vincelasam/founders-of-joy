@@ -41,6 +41,12 @@ export const toggleReaction = async (
 ): Promise<void> => {
   try {
     const postId = parseInt(req.params.id as string);
+
+    if (isNaN(postId)) {
+      res.status(400).json({ message: 'Invalid post ID' });
+      return; 
+    }
+    
     const userId = req.user!.id;
     const result = await postService.toggleReaction(postId, userId);
     res.json(result);
