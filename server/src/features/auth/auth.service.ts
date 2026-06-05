@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import * as AuthRepository from './auth.repository';
-import { AuthPayload } from '../../types/user';
+import { AuthPayload } from '../src/types/user';
 
 const SALT_ROUNDS = 12;
 
@@ -13,7 +13,9 @@ const signToken = (payload: AuthPayload): string => {
 
 export const register = async (name: string, email: string, password: string) => {
   const existing = await AuthRepository.findUserByEmail(email);
-  if (existing) throw new Error('Email already in use');
+  if (existing) {
+  throw Object.assign(new Error('Email already in use'), { statusCode: 409 });
+  }
 
   const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 
@@ -33,11 +35,13 @@ export const register = async (name: string, email: string, password: string) =>
 
 export const login = async (email: string, password: string) => {
   const user = await AuthRepository.findUserByEmail(email);
-  if (!user) throw new Error('Invalid email or password');
-
-  const isMatch = await bcrypt.compare(password, user.password_hash);
-  if (!isMatch) throw new Error('Invalid email or password');
-
+  if (!user) {
+  throw Object.assign(new Error('Invalid email or password'), { statusCode: 401 });
+}
+const isMatch = await bcrypt.compare(password, user.password_hash);
+if (!isMatch) {
+  throw Object.assign(new Error('Invalid email or password'), { statusCode: 401 });
+}
   // Never send password_hash to the client
   const { password_hash, ...safeUser } = user;
 
