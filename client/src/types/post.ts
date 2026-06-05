@@ -5,10 +5,14 @@ export interface Post {
   content: string;
   privacy: 'public' | 'circle' | 'followers';
   created_at: string;
-  author: Pick<User, 'id' | 'name' | 'avatar_url' | 'avatar_initials'>;
   reaction_count: number;
   comment_count: number;
   user_has_reacted: boolean;
+  
+  // Flat fields from your MySQL JOIN
+  author_name: string;
+  author_avatar_url: string | null;
+  author_avatar_initials: string | null;
 }
 
 export interface Comment {
@@ -17,7 +21,9 @@ export interface Comment {
   user_id: number;
   content: string;
   created_at: string;
-  author: Pick<User, 'id' | 'name' | 'avatar_url' | 'avatar_initials'>;
+  
+  // Flat fields from your MySQL JOIN
+  author_name: string;
+  author_avatar_url: string | null;
+  author_avatar_initials: string | null;
 }
-
-import { User } from './user';

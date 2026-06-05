@@ -5,15 +5,15 @@ import ReactionButton from './ReactionButton';
 import CommentSection from './CommentSection';
 
 interface PostProps {
-  id: string;
+  id: number; // Changed from string to number to match DB
   author: { name: string; circle: string; initials: string };
   time: string;
   content: string;
   likes: number;
-  comments: any[];
+  // 'comments' array has been completely removed
 }
 
-export default function PostCard({ author, time, content, likes, comments }: PostProps) {
+export default function PostCard({ id, author, time, content, likes }: PostProps) {
   const [showComments, setShowComments] = useState(false);
 
   return (
@@ -47,12 +47,13 @@ export default function PostCard({ author, time, content, likes, comments }: Pos
           className="flex items-center gap-1.5 text-sm text-muted hover:text-warm-gold transition-colors"
         >
           <span className="text-lg">💬</span>
-          <span className="font-medium">{comments.length}</span>
+          <span className="font-medium">Comment</span>
         </button>
       </div>
 
       {/* Comments Section Toggle */}
-      {showComments && <CommentSection initialComments={comments} />}
+      {/* Passing ID as a string in case your CommentSection still expects a string */}
+      {showComments && <CommentSection postId={id.toString()} />}
     </div>
   );
 }

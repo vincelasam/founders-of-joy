@@ -5,21 +5,22 @@ export const postService = {
     const response = await api.get(`/posts?page=${page}&limit=${limit}`);
     return response.data;
   },
-
-  // Update this method
   createPost: async (content: string, isPrivate: boolean) => {
     const privacy = isPrivate ? 'private' : 'public';
     const response = await api.post('/posts', { content, privacy });
     return response.data;
   },
-
   addComment: async (postId: string, text: string) => {
-    const response = await api.post(`/posts/${postId}/comments`, { content: text }); // Ensure 'content' key matches backend expectation
+    const response = await api.post(`/posts/${postId}/comments`, { content: text });
     return response.data;
   },
-
   toggleReaction: async (postId: string) => {
     const response = await api.post(`/posts/${postId}/reactions`);
+    return response.data;
+  },
+  // Add this new method:
+  getComments: async (postId: string) => {
+    const response = await api.get(`/posts/${postId}/comments`);
     return response.data;
   }
 };
