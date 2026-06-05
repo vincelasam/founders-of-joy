@@ -1,12 +1,23 @@
 import React from 'react';
-import Link from 'next/link'; // <-- 1. Import Link from next/link
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-warm-gold/20 flex items-center justify-between px-4 md:px-12 h-[70px]">
-      <div className="font-serif text-2xl font-semibold text-deep tracking-wide">
-        Founders <span className="text-warm-gold">of Joy</span>
-      </div>
+
+      <Link href="/" className="flex items-center gap-3">
+        <Image 
+          src="/Founders of Joy (2).png"   
+          alt="Founders of Joy Logo" 
+          width={40}         
+          height={40} 
+          className="w-10 h-auto"
+        />
+        <div className="font-serif text-2xl font-semibold text-deep tracking-wide">
+          Founders <span className="text-warm-gold">of Joy</span>
+        </div>
+      </Link>
       
       <ul className="hidden md:flex gap-7 list-none">
         {['Home', 'About', 'Circles', 'Programs', 'Events', 'Media', 'Volunteer', 'Donate'].map((item) => (
@@ -19,7 +30,6 @@ export default function Navbar() {
       </ul>
 
       <div className="flex items-center gap-3">
-        {/* 2. Change buttons to Links and add the href prop */}
         <Link 
           href="/login" 
           className="border border-warm-gold text-warm-gold bg-transparent px-5 py-2 rounded-full text-sm font-sans tracking-wide transition-all hover:bg-warm-gold hover:text-white"

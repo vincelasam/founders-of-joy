@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Avatar from "@/components/ui/Avatar"; // Ensure this path is correct
 
 export default function TopNav() {
@@ -10,9 +11,18 @@ export default function TopNav() {
 
   return (
     <nav className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-warm-gold/20 h-[70px] flex items-center justify-between px-6 shadow-sm">
-      {/* Left: Logo */}
-      <Link href="/feed" className="font-serif text-xl font-semibold text-deep w-64">
-        Founders <span className="text-warm-gold">of Joy</span>
+      {/* Use the exact same block here! */}
+      <Link href="/feed" className="flex items-center gap-3 w-64">
+        <Image 
+          src="/Founders of Joy (2).png" 
+          alt="Founders of Joy Logo" 
+          width={32} 
+          height={32} 
+          className="w-8 h-auto"
+        />
+        <div className="font-serif text-xl font-semibold text-deep hidden sm:block">
+          Founders <span className="text-warm-gold">of Joy</span>
+        </div>
       </Link>
       
       {/* Center: Search Bar */}
